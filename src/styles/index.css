@@ -1,0 +1,39 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* ── Sidebar accessibility & interaction styles ──────────────────────────── */
+
+/* Keyboard focus ring — visible only on keyboard navigation */
+.sidebar-navlink:focus-visible {
+  outline: 2px solid var(--sidebar-primary);
+  outline-offset: 2px;
+}
+
+/* Hide tooltip by default; show on parent hover (collapsed mode) */
+aside [role="tooltip"] {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+aside li:hover [role="tooltip"],
+aside button:hover [role="tooltip"] {
+  opacity: 1;
+}
+
+/* Smooth sidebar scroll */
+aside nav {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sidebar-border) transparent;
+}
+aside nav::-webkit-scrollbar {
+  width: 4px;
+}
+aside nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+aside nav::-webkit-scrollbar-thumb {
+  background-color: var(--sidebar-border);
+  border-radius: 4px;
+}
